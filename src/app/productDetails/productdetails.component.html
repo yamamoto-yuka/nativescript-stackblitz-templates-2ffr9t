@@ -1,0 +1,28 @@
+<ActionBar title="Productdetails" class="action-bar">
+</ActionBar>
+
+<ScrollView class="page">
+    <StackLayout class="home-panel">
+        <!--Add your page content here-->
+        <FlexboxLayout flexDirection="column" width="400">
+            <FlexboxLayout flexDirection="row">
+                 <StackLayout  class="image-box"
+                    *ngFor="let image of product.attributes.product_image.data">
+                     <Image stretch="aspectFit" [src]="image.attributes.url">
+                     </Image>
+                </StackLayout>
+            </FlexboxLayout>
+            <StackLayout class="desc-wrap">
+                <Label [text]="product.attributes.product_name"
+                    textWrap="true" class="name">
+                </Label>
+                <Label [text]="'$'+product.attributes.product_price"
+                    class="price">
+                </Label>
+                <Label [text]="product.attributes.product_desc"
+                    textWrap="true" class="description">
+                </Label>
+            </StackLayout>
+        </FlexboxLayout>
+    </StackLayout>
+</ScrollView>

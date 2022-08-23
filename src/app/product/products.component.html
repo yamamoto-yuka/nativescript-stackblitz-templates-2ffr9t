@@ -1,0 +1,44 @@
+<ActionBar title="Products" class="action-bar"> </ActionBar>
+<GridLayout>
+  <ScrollView class="page">
+    <StackLayout class="home-panel">
+      <!--Add your page content here-->
+
+      <StackLayout *ngFor="let product of products" class="product">
+        <FlexboxLayout flexDirection="row" width="400">
+          <StackLayout width="180" class="image-box">
+            <Image
+              stretch="fill"
+              [src]="product.attributes.product_image.data[0].attributes.url"
+            >
+            </Image>
+          </StackLayout>
+          <StackLayout class="desc-wrap" width="220">
+            <Label
+              [text]="product.attributes.product_name"
+              textWrap="true"
+              class="name"
+            >
+            </Label>
+            <Label
+              [text]="'$' + product.attributes.product_price"
+              class="price"
+            >
+            </Label>
+            <Label
+              [text]="product.attributes.product_desc"
+              textWrap="true"
+              class="description"
+            >
+            </Label>
+            <Button
+              text="View detail"
+              [nsRouterLink]="['/product', product.id]"
+            >
+            </Button>
+          </StackLayout>
+        </FlexboxLayout>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</GridLayout>
